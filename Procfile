@@ -1,1 +1,1 @@
-web gunicorn coredination_server.wsgi:application --log-file -
+web: gunicorn coredination_server.wsgi
