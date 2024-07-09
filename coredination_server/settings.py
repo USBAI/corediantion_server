@@ -64,6 +64,7 @@ MIDDLEWARE = [
 #7m_VTuNH$zJx%GC
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:8080/",
+    "https://coredination-jobb.vercel.app/",
     "https://corediantion-41cd1258aadd.herokuapp.com/",  # Add your allowed origins
 ]
 
