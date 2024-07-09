@@ -24,7 +24,7 @@ def job_detail_view(request):
                 "h1": "Senior Frontend Developer"
             },
             "job_image": {
-                "img": "https://media.istockphoto.com/id/477994952/sv/foto/dedicated-to-the-deadline.jpg?s=612x612&w=0&k=20&c=LAGa0h8tkH24igtwG9Gt8tG2SB89KQtYv5qU53spHGQ=",
+                "img": "https://media.istockphoto.com/id/1056253870/sv/foto/snygg-gammal-man-arbetar-p%C3%A5-b%C3%A4rbar-dator-surfa-p%C3%A5-internet-i-staden-utomhus-i-digital-nomad.jpg?s=612x612&w=0&k=20&c=zGm7f1HbdLA6YOsyKd0-G5E55D5UXrVAd_tquQT4lhA=",
                 "width": "100%"
             },
             "logo": {
@@ -40,7 +40,7 @@ def job_detail_view(request):
                 "h1": "Project Manager"
             },
             "job_image": {
-                "img": "https://media.istockphoto.com/id/477994952/sv/foto/dedicated-to-the-deadline.jpg?s=612x612&w=0&k=20&c=LAGa0h8tkH24igtwG9Gt8tG2SB89KQtYv5qU53spHGQ=",
+                "img": "https://media.istockphoto.com/id/871133990/sv/foto/att-s%C3%A4tta-sina-huvuden-ihop.jpg?s=612x612&w=0&k=20&c=42S7g8GC8C9IgVwQtPkraib3eJoeADVECLO0ytbCK6Q=",
                 "width": "100%"
             },
             "logo": {
@@ -56,7 +56,7 @@ def job_detail_view(request):
                 "h1": "Data Analyst"
             },
             "job_image": {
-                "img": "https://media.istockphoto.com/id/477994952/sv/foto/dedicated-to-the-deadline.jpg?s=612x612&w=0&k=20&c=LAGa0h8tkH24igtwG9Gt8tG2SB89KQtYv5qU53spHGQ=",
+                "img": "https://media.istockphoto.com/id/1383479265/sv/foto/doctors-work-at-the-office-at-night-on-a-pc.jpg?s=612x612&w=0&k=20&c=fYM3XaknMnikqjrXnBmdZa8P0u8LCbSuzuMOOmcoZ5c=",
                 "width": "100%"
             },
             "logo": {
@@ -72,7 +72,7 @@ def job_detail_view(request):
                 "h1": "Marketing Specialist"
             },
             "job_image": {
-                "img": "https://media.istockphoto.com/id/477994952/sv/foto/dedicated-to-the-deadline.jpg?s=612x612&w=0&k=20&c=LAGa0h8tkH24igtwG9Gt8tG2SB89KQtYv5qU53spHGQ=",
+                "img": "https://media.istockphoto.com/id/181086342/sv/foto/why-not-use-this-copyspace-its-free.jpg?s=612x612&w=0&k=20&c=9BSiLIKYW-l51QoD4wMP1PNt9WFGn1rYF9xo7ohrr3U=",
                 "width": "100%"
             },
             "logo": {
