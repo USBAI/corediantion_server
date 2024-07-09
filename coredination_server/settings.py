@@ -1,24 +1,44 @@
 import os
+import django_heroku
 import dj_database_url
 from pathlib import Path
+
+REST_FRAMEWORK = {
+    'DEFAULT_RENDERER_CLASSES': [
+        'rest_framework.renderers.JSONRenderer',
+    ]
+}
+
+# STRIPE_SECRET_KEY = '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'
+# STRIPE_PUBLISHABLE_KEY = 'pk_live_51PRfSZCZLHzBAOdTZTnLqhcUrEIk9vWY9zfnlbh51HiHf3SnRfQ6gUSlZbqhF9BwLmM3QxPGwydIbwAllriqQ4OR00vOKxMn4g'
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# Quick-start development settings - unsuitable for production
+# See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
+
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv('SECRET_KEY', 'django-insecure-c6r)g3(og%9rd80d2+1kb$mp74v*#3d2@=x4ydix#+9ee7=+%w')
+SECRET_KEY = 'django-insecure-2j7)5+p0zz&d8#5bbg%&cj299)ovbcu%ba2zbtzumd&(tq-%l+'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv('DEBUG', 'False') == 'True'
+DEBUG = True
 
-CORS_ALLOW_ALL_ORIGINS = False
+ALLOWED_HOSTS = ['*']
+# CORS_ALLOW_ALL_ORIGINS = True
 
-CORS_ALLOWED_ORIGINS = [
-    'https://coredination-jobb.vercel.app',
-    'http://localhost:8080',
-]
+# account_sid = "ACe45bb8f68bb97440e3183def3e1d8f9d"
+# auth_token = "c04ac813ef4d3d48e809237ebc748830"
+# twilio_number = "+13343263823"
+# openai.api_key = "sk-proj-Q1JLGoe7A3rRoZaqyUh9T3BlbkFJv7YuuWTvZccPiUAyp9Ji"
+
+# TWILIO_ACCOUNT_SID = 'ACe45bb8f68bb97440e3183def3e1d8f9d'
+# TWILIO_AUTH_TOKEN = 'c04ac813ef4d3d48e809237ebc748830'
+# TWILIO_PHONE_NUMBER = '+13343263823'
+# openai.api_key = "sk-proj-Q1JLGoe7A3rRoZaqyUh9T3BlbkFJv7YuuWTvZccPiUAyp9Ji"
 
 # Application definition
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -26,21 +46,25 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'coredination_endpoint',
-    'whitenoise.runserver_nostatic',
     'corsheaders',
+    'coredination_endpoint',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
-    'corsheaders.middleware.CorsMiddleware',  # Add this line
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+]
+#https://id.heroku.com/account/accept/15390462/4aefea38e7cca2eaadd9864420519135
+#7m_VTuNH$zJx%GC
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:8080/",
+    "https://corediantion-41cd1258aadd.herokuapp.com/",  # Add your allowed origins
 ]
 
 ROOT_URLCONF = 'coredination_server.urls'
@@ -65,14 +89,17 @@ WSGI_APPLICATION = 'coredination_server.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
+
 DATABASES = {
-    'default': dj_database_url.config(
-        default=os.getenv('DATABASE_URL', f'sqlite:///{BASE_DIR / "db.sqlite3"}')
-    )
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
 }
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
+
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -90,6 +117,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
+
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
@@ -100,19 +128,16 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
+
 STATIC_URL = 'static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
+
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# Static files settings for Heroku
-STATIC_ROOT = BASE_DIR / 'staticfiles'
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+# settings.py
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-# Add this line to configure allowed hosts
-ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '').split(',')
-
-# Environment variable usage
-SECRET_KEY = os.getenv('SECRET_KEY', 'django-insecure-c6r)g3(og%9rd80d2+1kb$mp74v*#3d2@=x4ydix#+9ee7=+%w')
-DEBUG = os.getenv('DEBUG', 'False') == 'True'
+django_heroku.settings(locals())
