@@ -63,9 +63,10 @@ MIDDLEWARE = [
 #https://id.heroku.com/account/accept/15390462/4aefea38e7cca2eaadd9864420519135
 #7m_VTuNH$zJx%GC
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:8080/",
-    "https://coredination-jobb.vercel.app/",
-    "https://corediantion-41cd1258aadd.herokuapp.com/",  # Add your allowed origins
+    "http://localhost:8080",
+    "http://localhost:8082",
+    "https://coredination-jobb.vercel.app",
+    "https://corediantion-41cd1258aadd.herokuapp.com",  # Add your allowed origins
 ]
 
 ROOT_URLCONF = 'coredination_server.urls'
