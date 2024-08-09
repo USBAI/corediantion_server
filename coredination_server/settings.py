@@ -2,20 +2,15 @@ import os
 import django_heroku
 import dj_database_url
 from pathlib import Path
-import environ
+from django.core.exceptions import ImproperlyConfigured
 
-
-
-
-REST_FRAMEWORK = {
-    'DEFAULT_RENDERER_CLASSES': [
-        'rest_framework.renderers.JSONRenderer',
-    ]
-}
-
-
+# Define BASE_DIR
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# Hardcoded API key
+STVN_API_KEY = "jhgyfidtsryefyigu-jugyuftdyrtfugiho-ouiygfy8tu878"
+
+# The rest of your settings.py file continues from here...
 
 SECRET_KEY = 'django-insecure-2j7)5+p0zz&d8#5bbg%&cj299)ovbcu%ba2zbtzumd&(tq-%l+'
 
@@ -25,6 +20,17 @@ COREDINATION_SECRET_KEY = 'cec5b414-860b-4298-8cc8-8be849491cbd'
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
+CORS_ALLOW_CREDENTIALS = True  # Allow cookies to be sent in cross-origin requests
+CORS_ALLOW_HEADERS = [
+    'content-type',
+    'authorization',
+    'stvn-api-key',
+    'x-csrftoken',
+    'origin',
+    'accept',
+    'x-requested-with',
+]
+CORS_EXPOSE_HEADERS = ['stvn-api-key']  # Ensure the header is exposed
 
 
 INSTALLED_APPS = [
@@ -54,7 +60,7 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:8080",
     "http://localhost:8082",
     "https://coredination-jobb.vercel.app",
-    "https://corediantion-41cd1258aadd.herokuapp.com", 
+    "https://corediantion-41cd1258aadd.herokuapp.com",
 ]
 
 ROOT_URLCONF = 'coredination_server.urls'
@@ -75,15 +81,7 @@ TEMPLATES = [
     },
 ]
 
-
-
-env = environ.Env()
-environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
-STVN_API_KEY = env('STVN_API_KEY')
-
-
 WSGI_APPLICATION = 'coredination_server.wsgi.application'
-
 
 DATABASES = {
     'default': {
@@ -91,7 +89,6 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -108,8 +105,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
-
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
@@ -118,10 +113,7 @@ USE_I18N = True
 
 USE_TZ = True
 
-
-
 STATIC_URL = 'static/'
-
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
