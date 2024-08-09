@@ -6,7 +6,6 @@ class APIKeyMiddleware:
         self.get_response = get_response
 
     def __call__(self, request):
-        # Only apply API key check for specific paths
         if request.path == '/coredination/get-job-data/':
             api_key = request.headers.get('STVN-API-Key')
             if api_key != settings.STVN_API_KEY:

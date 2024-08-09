@@ -4,5 +4,5 @@ from .views import GetJobDataView
 
 
 urlpatterns = [
-    path('get-job-data/', GetJobDataView.as_view(), name='get_job_data'),  # This URL requires an API key
+    path('get-job-data/', GetJobDataView.as_view(), name='get_job_data'),
 ]

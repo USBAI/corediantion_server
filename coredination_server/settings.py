@@ -4,13 +4,13 @@ import dj_database_url
 from pathlib import Path
 from django.core.exceptions import ImproperlyConfigured
 
-# Define BASE_DIR
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# Hardcoded API key
+
 STVN_API_KEY = "jhgyfidtsryefyigu-jugyuftdyrtfugiho-ouiygfy8tu878"
 
-# The rest of your settings.py file continues from here...
+
 
 SECRET_KEY = 'django-insecure-2j7)5+p0zz&d8#5bbg%&cj299)ovbcu%ba2zbtzumd&(tq-%l+'
 
@@ -20,7 +20,7 @@ COREDINATION_SECRET_KEY = 'cec5b414-860b-4298-8cc8-8be849491cbd'
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
-CORS_ALLOW_CREDENTIALS = True  # Allow cookies to be sent in cross-origin requests
+CORS_ALLOW_CREDENTIALS = True 
 CORS_ALLOW_HEADERS = [
     'content-type',
     'authorization',
@@ -30,8 +30,7 @@ CORS_ALLOW_HEADERS = [
     'accept',
     'x-requested-with',
 ]
-CORS_EXPOSE_HEADERS = ['stvn-api-key']  # Ensure the header is exposed
-
+CORS_EXPOSE_HEADERS = ['stvn-api-key']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
