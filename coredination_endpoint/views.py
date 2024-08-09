@@ -1,20 +1,24 @@
 # views.py
-import requests
+from django.conf import settings
 from django.http import JsonResponse
 from django.views import View
+import requests
 
 class GetJobDataView(View):
     def get(self, request):
-        # Replace these with your actual API key and secret
-        api_key = 'd561d1ea-d51f-4b3e-a48a-b5cbf683a732'
-        secret_key = 'cec5b414-860b-4298-8cc8-8be849491cbd'
+        # Check for the API key in the request headers
+        coredinationAPI_auth = request.headers.get('STVN-API-Key')
+
+        if coredinationAPI_auth != settings.STVN_API_KEY:
+            # If the API key is invalid, return a 401 Unauthorized response
+            return JsonResponse({'error': 'Unauthorized'}, status=401)
 
         # API endpoint for getting jobs
         url = 'https://app.coredination.net/api/1/job'
 
         # Set up the headers with the API key
         headers = {
-            'API-Key': api_key
+            'API-Key': settings.COREDINATION_API_KEY
         }
 
         try:
