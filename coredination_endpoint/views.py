@@ -9,7 +9,7 @@ class GetJobDataView(View):
         # Check for the API key in the request headers
         coredinationAPI_auth = request.headers.get('STVN-API-Key')
 
-        if coredinationAPI_auth != settings.STVN_API_KEY:
+        if coredinationAPI_auth != "d561d1ea-d51f-4b3e-a48a-b5cbf683a732":
             # If the API key is invalid, return a 401 Unauthorized response
             return JsonResponse({'error': 'Unauthorized'}, status=401)
 
