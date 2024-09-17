@@ -10,6 +10,7 @@ class GetJobDataView(View):
 
         # Compare it with the API key from the settings
         if coredinationAPI_auth != settings.STVN_API_KEY:
+            print(settings.STVN_API_KEY)
             return JsonResponse({'error': 'Unauthorized'}, status=401)
 
         # Make the request to the Coredination API
