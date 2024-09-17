@@ -13,7 +13,7 @@ class GetJobDataView(View):
         url = 'https://app.coredination.net/api/1/job'
 
         headers = {
-            'API-Key': settings.COREDINATION_API_KEY 
+            'API-Key': settings.COREDINATION_API_KEY
         }
 
         try:

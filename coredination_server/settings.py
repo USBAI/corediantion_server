@@ -12,8 +12,8 @@ STVN_API_KEY = "jhgyfidtsryefyigu-jugyuftdyrtfugiho-ouiygfy8tu878"
 
 
 
-SECRET_KEY = 'django-insecure-2j7)5+p0zz&d8#5bbg%&cj299)ovbcu%ba2zbtzumd&(tq-%l+'
-
+# Add your API key and secret
+STVN_API_KEY = "jhgyfidtsryefyigu-jugyuftdyrtfugiho-ouiygfy8tu878"
 COREDINATION_API_KEY = 'd561d1ea-d51f-4b3e-a48a-b5cbf683a732'
 COREDINATION_SECRET_KEY = 'cec5b414-860b-4298-8cc8-8be849491cbd'
 
