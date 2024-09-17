@@ -60,6 +60,7 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:8082",
     "https://coredination-jobb.vercel.app",
     "https://corediantion-41cd1258aadd.herokuapp.com",
+    "https://coredinationserer-b81fa50404cb.herokuapp.com"
 ]
 
 ROOT_URLCONF = 'coredination_server.urls'
