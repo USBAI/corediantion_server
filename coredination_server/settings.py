@@ -1,15 +1,11 @@
 import os
 import django_heroku
-import dj_database_url
 from pathlib import Path
 from django.core.exceptions import ImproperlyConfigured
 
-
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
-
-# Add your API key and secret
+# API keys
 STVN_API_KEY = "jhgyfidtsryefyigu-jugyuftdyrtfugiho-ouiygfy8tu878"
 COREDINATION_API_KEY = 'd561d1ea-d51f-4b3e-a48a-b5cbf683a732'
 COREDINATION_SECRET_KEY = 'cec5b414-860b-4298-8cc8-8be849491cbd'
@@ -17,7 +13,8 @@ COREDINATION_SECRET_KEY = 'cec5b414-860b-4298-8cc8-8be849491cbd'
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
-CORS_ALLOW_CREDENTIALS = True 
+CORS_ALLOW_CREDENTIALS = True
+
 CORS_ALLOW_HEADERS = [
     'content-type',
     'authorization',
